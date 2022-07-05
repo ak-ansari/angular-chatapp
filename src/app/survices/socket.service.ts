@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class SocketService {
   socket: any;
-  url = 'https://lets-chat-realtime-chat-app.herokuapp.com/' ;
+  url = 'https://lets-chat-realtime-chat-app.herokuapp.com/';
   object!: Object;
 
   private obs: Subject<any> = new Subject();
