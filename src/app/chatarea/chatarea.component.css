@@ -1,0 +1,87 @@
+.chatarea{
+
+    background-image: url('/assets/bg.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+   
+    margin: 0 auto;
+    height: 80vh;
+    width: 90vw;
+    overflow-y: auto;
+
+
+  
+}
+.div{
+     display: flex;
+    flex-direction: column;
+}
+.username{
+    text-align:center;
+    align-items: center;
+
+    width: 100%;
+    
+    margin:0 auto;
+    
+
+     
+
+}
+.username h4{
+    color: rgb(72, 8, 89);
+    font-size: 15px;
+    align-items: center;
+    margin-top: 3px;
+    padding: auto;
+
+}
+.incoming{
+    background:rgb(231, 92, 92);
+    display: block;
+    max-width: 60%;
+    text-align: start;
+    align-items: center;
+    float: left;
+    clear: both;
+    border-radius: 8px;
+    margin: 18px 5px 0 0;
+    position: relative;
+}
+.incoming div p{
+    padding: 4px 12px;
+    margin: auto;
+    color: white;
+    font-weight: 500;
+}
+.incoming h6{
+    color: white;
+    position: absolute;
+    top: -29px;
+    margin-top: 9px;
+    margin-left: 5px;
+}
+.outgoing{
+    background:rgb(7, 6, 72);
+    display: block;
+    max-width: 60%;
+    text-align: end;
+    float: right;
+    clear: both;
+    align-items: center;
+    border-radius: 8px;
+    margin: 18px 5px 0 0;
+    position: relative;
+}
+.outgoing div p{
+    padding: 4px 12px;
+    margin: 2px auto;
+    color: white;
+    font-weight: 500;
+}
+.outgoing h6{
+    color: white;
+    position: absolute;
+    top: -29px;
+    margin-top: 9px;
+}
