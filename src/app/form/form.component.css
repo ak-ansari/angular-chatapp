@@ -12,7 +12,6 @@
     align-items: start;
     flex: 9;
     border: 1px transparent;
-    border-radius: 0 0 0 20px;
 }
 .send{
     font-size: 25px;
