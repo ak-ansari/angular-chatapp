@@ -1,1 +1,5 @@
+
+<div class="form">
 <input (keydown)="typeingmsg()" type="text" #inp class="input" placeholder="write something......" (keyup.Enter)="getvalue(inp.value)" [(ngModel)]="val">
+<div class="icondiv"> <fa-icon [icon]="faPaperPlane" class="send" (click)="getvalue(inp.value)"></fa-icon></div>
+</div>

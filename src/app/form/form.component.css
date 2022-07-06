@@ -1,5 +1,29 @@
-.input{
+.form{
     margin: 0 auto;
-    display: block;
+    display: flex;
+    justify-content: start;
     width: 90vw;
+}
+.input{
+    margin: 0 ;
+    display: block;
+    width:90%;
+    align-items: start;
+    border: 1px transparent;
+    border-radius: 0 0 0 20px;
+}
+.send{
+    font-size: 30px;
+    padding: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 1px 0;
+    background-color: #fff;
+    padding: 4px;
+
+}
+.icondiv{
+    background-color: #fff;
+    width: 10%;
 }

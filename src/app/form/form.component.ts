@@ -2,6 +2,7 @@ import { isNgTemplate } from '@angular/compiler';
 import { NgModel } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { SocketService } from '../survices/socket.service';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 let msg: string = '0';
 @Component({
   selector: 'app-form',
@@ -13,6 +14,7 @@ export class FormComponent implements OnInit {
   public user?: any;
   public msg?:string;
   public object!:{user:string,msg:string,class?:string};
+  faPaperPlane=faPaperPlane;
   
  
   ngOnInit(): void {
