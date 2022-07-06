@@ -31,7 +31,7 @@ export class ChatareaComponent implements OnInit {
       this.allmsg.push(data);
       setTimeout(() => {
          this.scroll();
-       }, 1000);
+       }, 100);
     });
 
     this.socketService.listen('message', (data) => {
