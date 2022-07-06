@@ -23,6 +23,9 @@ export class FormComponent implements OnInit {
     this.user = user;
     this.SocketSurvices.emit('join',user)
   }
+  typeingmsg(){
+    this.SocketSurvices.emit('type',this.user)
+  }
 
   getvalue(value:string) {
     this.val = '';
