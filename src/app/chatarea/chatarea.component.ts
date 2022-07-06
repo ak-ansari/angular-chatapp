@@ -75,7 +75,7 @@ this.temp=`${data} is typing.....`;
       }
       if(data.length!==0){
 
-        this.listofusers=`users in this rooom : ${val}`;
+        this.listofusers=`users in this room : ${val}`;
         console.log(this.listofusers)
       }
       
