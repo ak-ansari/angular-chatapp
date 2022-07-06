@@ -17,22 +17,25 @@ export class ChatareaComponent implements OnInit {
   public allmsg: any = [];
   listofusers:any;
   public temp:any;
+  public room:any;
 
   thisuser: any;
   outgoingmsg: any;
   constructor(private socketService: SocketService, private apiservice:ApiService) {}
 
   ngOnInit(): void {
+    this.socketService.getroom().subscribe((data)=>{
+    this.room=data;})
     this.socketService.getmsg().subscribe((data) => {
       data.class = 'outgoing';
       this.allmsg.push(data);
-      
-       setTimeout(() => {
+      setTimeout(() => {
          this.scroll();
-       }, 100);
+       }, 1000);
     });
 
     this.socketService.listen('message', (data) => {
+      console.log(data);
       this.allmsg.push(data);
       this.temp='';
       setTimeout(() => {
@@ -40,8 +43,10 @@ export class ChatareaComponent implements OnInit {
       }, 100);
       
     });
+    
     this.socketService.listen('join', (data) => {
       let userlist: any = {};
+      
       userlist.name = `${data} joined the chat`;
       userlist.class = 'username';
       this.allmsg.push(userlist);
@@ -60,25 +65,18 @@ export class ChatareaComponent implements OnInit {
     
     });
     this.socketService.listen('type',(data)=>{
-this.temp=`${data} is typing.....`;
+this.temp=`${data.msg} is typing.....`;
 
     });
-    this.apiservice.fetchallusers().subscribe((obj)=>{
-      let data= Object.values(obj);
-      let val:any;
-      if (data.length===1) {
-        val=data[0]
+    this.apiservice.fetchallusers().subscribe((obj:any)=>{
+  
+  let room=this.room
+  let temp=obj[room];
+  if(Object.values(temp).length!==0){
+    this.listofusers = `users in this room : ${Object.values(temp)}`;
 
-        } else {
-          val=data.join(' , ')
-        
-      }
-      if(data.length!==0){
-
-        this.listofusers=`users in this room : ${val}`;
-        console.log(this.listofusers)
-      }
-      
+  }
+  
 
     })
   }
