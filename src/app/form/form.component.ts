@@ -19,9 +19,9 @@ export class FormComponent implements OnInit {
  
   ngOnInit(): void {
     let user: any;
-    do {
-      user = prompt('please enter your name');
-    } while (!user);
+    // do {
+    //   user = prompt('please enter your name');
+    // } while (!user);
     this.user = user;
     this.SocketSurvices.emit('join',user)
   }
