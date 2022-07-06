@@ -1,7 +1,10 @@
+
+
 <div class="chatarea" #chat>
-  <div class="username">
+    <div class="username">
 <h4>{{listofusers}}</h4>
-  </div>
+</div>
+<div>
   <div [ngClass]="data.class " class="div" *ngFor="let data of allmsg">
     <div>
       <h6>{{ data.user }}</h6>
@@ -12,8 +15,9 @@
       <h4 >{{ data.name }} </h4>
     
   </div>
-  <div class="username">
-<h4>{{temp}}</h4>
-
+</div>
+  <div class="username type">
+    <h4>{{temp}}</h4>
   </div>
+
 </div>
