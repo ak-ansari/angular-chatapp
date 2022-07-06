@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit,ViewChild } from '@angular/core';
 import { ApiService } from '../survices/api.service';
 import { SocketService } from '../survices/socket.service';
-
+const welcome= new Audio().src='/src/assets/wellcome.mp3';
 @Component({
   selector: 'app-chatarea',
   templateUrl: './chatarea.component.html',
@@ -24,6 +24,8 @@ export class ChatareaComponent implements OnInit {
   constructor(private socketService: SocketService, private apiservice:ApiService) {}
 
   ngOnInit(): void {
+    const eventsound=new Audio();
+    eventsound.src='../../assets/event.mp3'
     this.socketService.getroom().subscribe((data)=>{
     this.room=data;})
     this.socketService.getmsg().subscribe((data) => {
@@ -35,6 +37,10 @@ export class ChatareaComponent implements OnInit {
     });
 
     this.socketService.listen('message', (data) => {
+      const msg=new Audio();
+      msg.src='../../assets/msg.mp3';
+      msg.play();
+      
       console.log(data);
       this.allmsg.push(data);
       this.temp='';
@@ -45,6 +51,7 @@ export class ChatareaComponent implements OnInit {
     });
     
     this.socketService.listen('join', (data) => {
+      eventsound.play();
       let userlist: any = {};
       
       userlist.name = `${data} joined the chat`;
@@ -55,6 +62,7 @@ export class ChatareaComponent implements OnInit {
       }, 100);
     });
     this.socketService.listen('left', (data) => {
+      eventsound.play();
       let userlist: any = {};
       userlist.name = `${data} left`;
       userlist.class = 'username';
