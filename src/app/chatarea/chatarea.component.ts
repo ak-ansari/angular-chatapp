@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit,ViewChild } from '@angular/core';
 import { ApiService } from '../survices/api.service';
 import { SocketService } from '../survices/socket.service';
-const welcome= new Audio().src='/src/assets/wellcome.mp3';
 @Component({
   selector: 'app-chatarea',
   templateUrl: './chatarea.component.html',

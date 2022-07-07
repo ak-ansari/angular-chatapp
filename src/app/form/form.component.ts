@@ -4,15 +4,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SocketService } from '../survices/socket.service';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-
-
   public val: any;
   public user?: any;
   public room?: any;
@@ -33,12 +30,7 @@ export class FormComponent implements OnInit {
         proceed = true;
       }
     } while (!proceed);
-     const welcome = new Audio();
-     welcome.src = '../../assets/wellcome.mp3';
-     setTimeout(()=>{
-
-       welcome.play();
-     },100)
+    setTimeout(() => {}, 100);
     this.user = user;
     this.room = room;
 
@@ -50,7 +42,6 @@ export class FormComponent implements OnInit {
   }
 
   getvalue(value: string) {
-   
     this.val = '';
     this.msg = value;
     let obj = {
