@@ -48,13 +48,19 @@ export class FormComponent implements OnInit {
         }
         this.user = userin;
         this.room = roomin;
-        this.SocketSurvices.emit('join', { user: this.user, room: this.room });
-        this.ApiSurvice.fetchallusers().subscribe((data: any) => {
-          let room = this.room;
-          let temp = data[room];
-          let obj: any = Object.values(temp);
-          this.SocketSurvices.passUsers(obj);
-        });
+        
+       let promise= new Promise((res,rej)=>{
+        res(this.SocketSurvices.emit('join', { user: this.user, room: this.room }))
+        rej()
+       }).then(()=>{
+this.ApiSurvice.fetchallusers().subscribe((data: any) => {
+  let room = this.room;
+  let temp = data[room];
+  let obj: any = Object.values(temp);
+  this.SocketSurvices.passUsers(obj);
+});
+       })
+        
       },
     }).then().catch((err)=>console.log(err));
   }
