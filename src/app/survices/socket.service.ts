@@ -11,9 +11,6 @@ export class SocketService {
   url = 'https://angular-chat-app-backend.herokuapp.com/';
   object!: Object;
 
-  private obs: Subject<any> = new Subject();
-  private room: Subject<any> = new Subject();
-
   constructor() {
     this.socket = io(this.url);
   }
@@ -23,20 +20,21 @@ export class SocketService {
   emit(event_name: string, data: any) {
     this.socket.emit(event_name, data);
   }
-  passobject(object: object) {
-    // return (this.object = object);
+  private obs: Subject<any> = new Subject();
 
+  passobject(object: object) {
     this.obs.next(object);
   }
-  passroom(data:string){
-    this.room.next(data);
-  }
-  getroom():Observable<any>{
-    return this.room;
-  }
-
   getmsg(): Observable<any> {
     return this.obs;
   }
+  private Users: Subject<any> = new Subject();
+  passUsers(data: string) {
+    this.Users.next(data);
+  }
+  getUsers(): Observable<any> {
+    return this.Users;
+  }
+
   fetchdata() {}
 }
