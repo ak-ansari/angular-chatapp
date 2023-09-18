@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { io } from 'socket.io-client';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class SocketService {
   socket: any;
   temp:any;
-  // url='http://localhost:3000'
-  url = 'https://angular-chat-app-backend.herokuapp.com/';
+  url = environment.SERVER_URL;
   object!: Object;
 
   constructor() {
-    this.socket = io(this.url);
+    this.socket = io(this.url,{transports:["websocket"]});
   }
   listen(event_name: string, fun: (data: any) => void): Observable<any> {
     return this.socket.on(event_name, fun);
